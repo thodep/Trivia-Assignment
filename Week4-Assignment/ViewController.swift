@@ -11,6 +11,9 @@ import UIKit
 class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource {
     
     
+    @IBOutlet weak var tableView: UITableView!
+    
+    
     var trivia1 = Trivia(name:"CN Tower",country:"Toronto",trivia:"Large Building",images:"1.jpg")
     var trivia2 = Trivia(name: "Casa Loma", country: "Toronto", trivia: "Big Castle",images:"2.jpg")
     var trivia3 = Trivia(name: "Royal Ontario Museum", country: "Toronto", trivia: "Big Museum",images:"4.jpg")
@@ -50,7 +53,9 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int{
         return trivias.count
     }
-    
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        print(indexPath.row)
+    }
 
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell{
@@ -74,6 +79,16 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
         UIView.animateWithDuration(1.0, animations: { () -> Void in
             cell.alpha = 1
         })
+    }
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "map" {
+           let indexPath = self.tableView.indexPathForSelectedRow()
+            let controller = segue.destinationViewController as? MapViewController
+            if let myIndexValue = indexPath {
+                controller?.myInt = myIndexValue.row
+            }
+            
+        }
     }
     
     

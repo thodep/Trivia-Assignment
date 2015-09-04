@@ -15,8 +15,11 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, MKMapViewD
     @IBOutlet weak var mapView: MKMapView!
     let locationManager = CLLocationManager()
     
+    var myInt:Int = 0
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        print(myInt)
         // Create an array of landmark
         var landmarkCollection = [
             Landmark(title: "CN Tower", coordinate: CLLocationCoordinate2D(latitude: 43.64251, longitude: -79.387038), subtitle: " The CN Tower is over 500 metres tall"),
@@ -34,7 +37,7 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, MKMapViewD
         ]
         
         
-         self.mapView.addAnnotations(landmarkCollection)
+         self.mapView.addAnnotation(landmarkCollection[myInt])
         
          mapSetUp()
     }

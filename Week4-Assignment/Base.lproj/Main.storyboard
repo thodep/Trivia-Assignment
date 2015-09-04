@@ -80,7 +80,7 @@
                                             <outlet property="detailLabels" destination="D7W-g3-9p0" id="jLt-mr-cQG"/>
                                             <outlet property="landmarkPics" destination="ptC-Pi-LUJ" id="tNZ-Zp-nCW"/>
                                             <outlet property="nameLabel" destination="gzr-9c-D2x" id="dEe-yE-UxP"/>
-                                            <segue destination="R1O-mC-Wvi" kind="show" id="pVS-Gi-hMT"/>
+                                            <segue destination="R1O-mC-Wvi" kind="show" identifier="map" id="pVS-Gi-hMT"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -99,6 +99,9 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="Sqj-Ys-Ij7"/>
+                    <connections>
+                        <outlet property="tableView" destination="fRn-iX-9Ad" id="WzD-2B-kvN"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
